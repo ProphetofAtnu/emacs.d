@@ -11,5 +11,4 @@
   :after lsp
   :commands lsp-ui-mode)
   
-
 (provide 'site-lsp)

@@ -13,11 +13,12 @@
   )
 
 (use-package consult
-  :straight t
-  :bind
-  (:map +leader-file-prefix-map
-	("r" . consult-recent-file)
-	("d" . consult-fd)))
+    :straight t
+    :bind (:map +leader-file-prefix-map
+		("r" . consult-recent-file)
+		("d" . consult-fd)
+	   :map +leader-buffer-prefix-map
+		("b" . consult-buffer)))
 
 (use-package orderless
   :straight t
@@ -70,5 +71,4 @@
         orderless-component-separator #'orderless-escapable-split-on-space ;; allow escaping space with backslash!
         orderless-style-dispatchers (list #'+orderless-consult-dispatch
                                           #'orderless-affix-dispatch)))
-
 (provide 'site-minibuffer-completion)

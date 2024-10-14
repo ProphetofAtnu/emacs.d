@@ -20,5 +20,12 @@
 (use-package autorevert
   :hook (emacs-startup . global-auto-revert-mode))
 
+(use-package projectile
+    :straight t
+    :hook (emacs-startup . projectile-mode))
+    
+(use-package yasnippet
+    :straight t
+    :hook (emacs-startup . yas-global-mode))
 
 (provide 'site-interaction)

@@ -20,8 +20,9 @@
 (require 'use-package)
 
 ;; Packages that should always be available.
-(use-package delight :straight t)
-(use-package diminish :straight t)
+(use-package diminish :straight t
+  :init
+  (require 'diminish))
 
 (setf use-package-compute-statistics t)
 
@@ -33,6 +34,7 @@
 
 ;; General
 (setf visible-bell nil
+      inhibit-splash-screen t
       frame-resize-pixelwise t
       window-resize-pixelwise t
       ring-bell-function #'ignore
@@ -42,9 +44,10 @@
       custom-file (expand-file-name "custom.el" user-emacs-directory))
 
 ;; Native comp
-(setf warning-minimum-level :error
-      warning-minimum-loglevel :error
-      native-comp-async-query-on-exit t)
+(setf
+ ;; warning-minimum-level :error
+ ;; warning-minimum-loglevel :error
+ native-comp-async-query-on-exit t)
 
 ;; Backup files
 (setf
@@ -55,8 +58,5 @@
 (require 'site-keyboard)
 (require 'site-interaction)
 (require 'site-minibuffer-completion)
-
 (require 'site-languages)
-
 (require 'site-theme)
-
