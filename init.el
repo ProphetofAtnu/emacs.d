@@ -20,9 +20,9 @@
 (require 'use-package)
 
 ;; Packages that should always be available.
-(use-package diminish :straight t
+(use-package delight :straight t
   :init
-  (require 'diminish))
+  (require 'delight))
 
 (setf use-package-compute-statistics t)
 
@@ -41,6 +41,7 @@
       sentence-end-double-space nil
       minibuffer-follows-selected-frame nil
       tab-width 4
+      tab-bar-show nil
       custom-file (expand-file-name "custom.el" user-emacs-directory))
 
 ;; Native comp
@@ -58,5 +59,7 @@
 (require 'site-keyboard)
 (require 'site-interaction)
 (require 'site-minibuffer-completion)
+(require 'site-org)
+(require 'site-vc)
 (require 'site-languages)
 (require 'site-theme)

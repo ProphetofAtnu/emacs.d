@@ -14,11 +14,14 @@
 
 (use-package consult
     :straight t
-    :bind (:map +leader-file-prefix-map
-		("r" . consult-recent-file)
-		("d" . consult-fd)
-	   :map +leader-buffer-prefix-map
-		("b" . consult-buffer)))
+    :bind
+    (:map +leader-file-prefix-map
+	  ("r" . consult-recent-file)
+	  ("d" . consult-fd)
+	  :map +leader-search-prefix-map
+	  ("s" . consult-line)
+	  :map +leader-buffer-prefix-map
+	  ("b" . consult-buffer)))
 
 (use-package orderless
   :straight t

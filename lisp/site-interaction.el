@@ -22,10 +22,15 @@
 
 (use-package projectile
     :straight t
+    :delight projectile-mode
     :hook (emacs-startup . projectile-mode))
     
 (use-package yasnippet
     :straight t
+    :delight yas-minor-mode
     :hook (emacs-startup . yas-global-mode))
+
+(use-package elec-pair
+    :hook (emacs-startup . electric-pair-mode))
 
 (provide 'site-interaction)

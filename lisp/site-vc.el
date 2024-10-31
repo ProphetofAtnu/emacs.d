@@ -2,6 +2,9 @@
 
 (use-package magit
     :straight t
-    :commands magit)
+    :commands magit
+    :bind
+    (:map +leader-util-prefix-map
+	  ("g" . magit)))
 
 (provide 'site-vc)

@@ -24,7 +24,9 @@
   ;; `global-corfu-modes' to exclude certain modes.
   :hook (emacs-startup . global-corfu-mode)
   :config
-  (setf corfu-cycle t)
+  (setf corfu-cycle t
+	corfu-auto t
+	corfu-auto-prefix 2)
   (setf tab-always-indent 'complete)
 
   ;; Emacs 30 and newer: Disable Ispell completion function. As an alternative,
