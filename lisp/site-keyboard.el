@@ -117,6 +117,8 @@
 		       (evil-collection-init)))
   :config
   (setf evil-collection-want-unimpaired-p nil)
+  (cl-delete 'org evil-collection-mode-list)
+
   (with-eval-after-load "evil-collection-unimpaired"
     (delight 'evil-collection-unimpaired-mode nil "evil-collection-unimpaired")))
 
