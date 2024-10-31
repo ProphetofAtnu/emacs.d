@@ -6,7 +6,8 @@
 (use-package dired
   :commands (dired-jump dired-jump-other-window dired)
   :config
-  (keymap-unset dired-mode-map "SPC" t))
+  (keymap-unset dired-mode-map "SPC" t)
+  (put 'dired-jump 'repeat-map nil))
 
 (defvar-keymap +leader-file-prefix-map
   :doc "Leader prefix for file commands"

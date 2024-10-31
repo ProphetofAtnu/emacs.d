@@ -36,6 +36,7 @@
 
 (require 'site-lang-elisp)
 (require 'site-lang-scheme)
+(require 'site-lang-python)
 (require 'site-lang-cc)
 
 (provide 'site-languages)

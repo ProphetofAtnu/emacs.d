@@ -33,4 +33,11 @@
 (use-package elec-pair
     :hook (emacs-startup . electric-pair-mode))
 
+(use-package treemacs
+    :straight t
+    :commands (treemacs)
+    :bind
+    (:map +leader-util-prefix-map
+	  ("t" . treemacs)))
+
 (provide 'site-interaction)
