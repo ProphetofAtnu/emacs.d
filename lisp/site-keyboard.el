@@ -26,7 +26,6 @@
   "q" #'save-buffers-kill-emacs
   )
 
-
 (use-package ibuffer
   :commands ibuffer)
 
@@ -37,6 +36,11 @@
   "d" #'kill-current-buffer
   "i" #'ibuffer
   )
+
+;;; Goto prefix
+(defvar-keymap +leader-goto-prefix-map
+  :doc "Leader prefix for jump/goto commands"
+  "l" #'goto-line)
 
 ;;; Util prefix
 (defvar-keymap +leader-util-prefix-map
@@ -67,6 +71,7 @@
   "q" `("Emacs" . ,+leader-meta-prefix-map)
   "s" `("Search" . ,+leader-search-prefix-map)
   "u" `("Utility" . ,+leader-util-prefix-map)
+  "g" `("Goto" . ,+leader-goto-prefix-map)
   "h" `("Help" . ,help-map))
 
 (use-package which-key
@@ -121,5 +126,10 @@
 
   (with-eval-after-load "evil-collection-unimpaired"
     (delight 'evil-collection-unimpaired-mode nil "evil-collection-unimpaired")))
+
+(use-package evil-surround
+    :straight t
+    :after evil
+    :hook (evil-mode . global-evil-surround-mode))
 
 (provide 'site-keyboard)

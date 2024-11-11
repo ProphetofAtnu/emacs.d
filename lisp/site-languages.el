@@ -34,9 +34,11 @@
 	    (verilog "https://github.com/tree-sitter/tree-sitter-verilog.git")
 	    )))
 
+(require 'site-lang-encodings)
 (require 'site-lang-elisp)
 (require 'site-lang-scheme)
 (require 'site-lang-python)
 (require 'site-lang-cc)
+(require 'site-lang-query)
 
 (provide 'site-languages)

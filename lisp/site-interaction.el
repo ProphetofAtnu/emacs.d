@@ -33,6 +33,10 @@
 (use-package elec-pair
     :hook (emacs-startup . electric-pair-mode))
 
+(use-package tablist
+    :straight t
+    :defer t)
+
 (use-package treemacs
     :straight t
     :commands (treemacs)

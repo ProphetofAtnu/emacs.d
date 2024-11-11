@@ -24,6 +24,10 @@
   :init
   (require 'delight))
 
+(use-package general
+    :straight t
+    :demand t)
+
 (setf use-package-compute-statistics t)
 
 (cl-pushnew (expand-file-name
@@ -42,7 +46,10 @@
       minibuffer-follows-selected-frame nil
       tab-width 4
       tab-bar-show nil
+      gc-cons-threshold 100000000
+      read-process-output-max (* 1024 1024)
       custom-file (expand-file-name "custom.el" user-emacs-directory))
+
 
 ;; Native comp
 (setf

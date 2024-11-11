@@ -13,4 +13,8 @@
 	    lisp-interaction-mode)
 	   . evil-cleverparens-mode))
 
+(use-package macrostep
+    :straight t
+    :defer t)
+
 (provide 'site-lang-lisp)

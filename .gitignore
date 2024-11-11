@@ -4,3 +4,4 @@ tree-sitter/
 eln-cache/
 straight/
 custom.el
+/elpa/
