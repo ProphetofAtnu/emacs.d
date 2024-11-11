@@ -11,7 +11,6 @@
     :straight t
     :hook (emacs-startup . lisp-extra-font-lock-global-mode))
 
-
 (use-package elisp-mode
   :bind
   (:map emacs-lisp-mode-map

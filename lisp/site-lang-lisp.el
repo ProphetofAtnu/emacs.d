@@ -17,4 +17,5 @@
     :straight t
     :defer t)
 
+(display-buffer-record-window 'window (selected-window) (current-buffer))
 (provide 'site-lang-lisp)
