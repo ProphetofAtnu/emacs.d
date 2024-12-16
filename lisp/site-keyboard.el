@@ -132,4 +132,8 @@
     :after evil
     :hook (evil-mode . global-evil-surround-mode))
 
+(use-package origami
+    :straight t
+    :commands (origami-mode global-origami-mode))
+
 (provide 'site-keyboard)
