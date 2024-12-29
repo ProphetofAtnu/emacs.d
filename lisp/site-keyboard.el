@@ -132,4 +132,10 @@
     :after evil
     :hook (evil-mode . global-evil-surround-mode))
 
+(use-package avy
+    :straight t
+    :general
+    (:states 'normal
+	     "g l" 'avy-goto-line))
+
 (provide 'site-keyboard)

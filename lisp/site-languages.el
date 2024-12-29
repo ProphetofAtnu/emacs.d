@@ -40,5 +40,6 @@
 (require 'site-lang-python)
 (require 'site-lang-cc)
 (require 'site-lang-query)
+(require 'site-lang-extras)
 
 (provide 'site-languages)

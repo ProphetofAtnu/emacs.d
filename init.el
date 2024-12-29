@@ -28,6 +28,12 @@
     :straight t
     :demand t)
 
+(use-package exec-path-from-shell
+    :straight t
+    :demand t
+    :init
+    (exec-path-from-shell-initialize))
+
 (setf use-package-compute-statistics t)
 
 (cl-pushnew (expand-file-name
@@ -68,5 +74,6 @@
 (require 'site-minibuffer-completion)
 (require 'site-org)
 (require 'site-vc)
+(require 'site-vterm)
 (require 'site-languages)
 (require 'site-theme)
