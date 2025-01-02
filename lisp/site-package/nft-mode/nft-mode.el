@@ -88,11 +88,11 @@
 		      'symbols)))))
       (0 'nft-mode-command-face))
 
-    ("^\\s-*\\<table\\>" (0 'nft-mode-type-face)
-			 (,(regexp-opt nft-grammar-table-families)
+    ("^\\s-*\\_<table\\_>" (0 'nft-mode-type-face)
+			 (,(regexp-opt nft-grammar-table-families 'symbols)
 			   nil nil (0 'nft-mode-named-value-face)))
 
-    ("^\\s-*\\<type\\>" (0 'nft-mode-keyword-face)
+    ("^\\s-*\\_<type\\_>" (0 'nft-mode-keyword-face)
 			(,(regexp-opt nft-grammar-chain-types 'symbols)
 			  nil nil (0 'nft-mode-named-value-face))
 			("\\<hook\\>" nil nil
@@ -102,12 +102,12 @@
 			("\\<priority\\>" nil nil
 					  (0 'nft-mode-keyword-face)))
 
-    ("\\(?:^\s-*\\)?\\<policy\\>" (0 'nft-mode-keyword-face)
-				  (,(regexp-opt nft-grammar-policies)
+    ("\\(?:^\s-*\\)?\\_<policy\\_>" (0 'nft-mode-keyword-face)
+				  (,(regexp-opt nft-grammar-policies 'symbols)
 				    nil nil
 				    (0 'nft-mode-named-value-face)))
-    ("\\(?:^\s-*\\)?\\<comment\\>" (0 'nft-mode-keyword-face)
-				   (,(regexp-opt nft-grammar-policies)
+    ("\\(?:^\s-*\\)?\\_<comment\\_>" (0 'nft-mode-keyword-face)
+				   (,(regexp-opt nft-grammar-policies 'symbols)
 				     nil nil
 				     (0 'nft-mode-named-value-face)))
 
@@ -150,7 +150,6 @@
     (modify-syntax-entry ?: "." table) ; map separator
     (modify-syntax-entry ?\; "." table) ; statement separator
     (modify-syntax-entry ?, "." table) ; set separator
-    (modify-syntax-entry ?- "." table) ; range
 
     (modify-syntax-entry ?\\ "\\" table)
 
@@ -159,6 +158,7 @@
     (modify-syntax-entry ?@ "_" table)
     (modify-syntax-entry ?$ "_" table)
 
+    (modify-syntax-entry ?- "_" table) ; range
     ;; also concatenates
     (modify-syntax-entry ?. "_" table)
 
