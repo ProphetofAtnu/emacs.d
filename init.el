@@ -69,6 +69,8 @@
  backup-directory-alist `((".*" . ,temporary-file-directory))
  auto-save-file-name-transforms `((".*" ,temporary-file-directory t)))
 
+(setf switch-to-buffer-obey-display-actions t)
+
 (require 'site-keyboard)
 (require 'site-interaction)
 (require 'site-minibuffer-completion)
@@ -77,3 +79,8 @@
 (require 'site-vterm)
 (require 'site-languages)
 (require 'site-theme)
+
+(load (expand-file-name "custom.el" user-emacs-directory)
+      t)
+
+(put 'dired-find-alternate-file 'disabled nil)
