@@ -26,7 +26,8 @@
   :config
   (setf corfu-cycle t
 	corfu-auto t
-	corfu-auto-prefix 2)
+	corfu-auto-prefix 2
+	corfu-preselect 'prompt)
   (setf tab-always-indent 'complete)
 
   ;; Emacs 30 and newer: Disable Ispell completion function. As an alternative,
