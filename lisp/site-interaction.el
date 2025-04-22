@@ -12,19 +12,22 @@
 	  #'+gui-setup)
 
 (use-package savehist
-  :hook (emacs-startup . savehist-mode))
+    :hook (emacs-startup . savehist-mode))
 
 (use-package recentf
-  :hook (emacs-startup . recentf-mode))
+    :hook (emacs-startup . recentf-mode))
+
+(use-package posframe
+    :straight t)
 
 (use-package autorevert
-  :hook (emacs-startup . global-auto-revert-mode))
+    :hook (emacs-startup . global-auto-revert-mode))
 
 (use-package projectile
     :straight t
     :delight projectile-mode
     :hook (emacs-startup . projectile-mode))
-    
+
 (use-package yasnippet
     :straight t
     :delight yas-minor-mode
@@ -44,5 +47,8 @@
     (:map +leader-util-prefix-map
 	  ("t" . treemacs)))
 
+(use-package ialign
+    :straight t
+    :commands (ialign))
 
 (provide 'site-interaction)

@@ -6,7 +6,10 @@
   (setq lsp-keymap-prefix "C-c l")
   :commands lsp
   :config
-  (setf lsp-completion-provider :none))
+  (setf lsp-completion-provider :none)
+  (add-hook 'lsp-mode-hook
+	    (lambda ()
+	      (setq-local evil-lookup-func #'lsp-ui-doc-glance))))
 
 (use-package lsp-ui
   :straight t

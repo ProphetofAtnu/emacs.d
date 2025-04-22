@@ -103,7 +103,7 @@
   (defvar evil-ex-search-vim-style-regexp t)
   (defvar evil-search-module 'evil-search)
   :config
-  (evil-define-key 'normal 'global
+  (evil-define-key '(motion normal visual) 'global
     (kbd "<SPC>") +leader-prefix-map)
   (evil-define-key 'normal 'global
     (kbd "gcc") #'comment-line)
