@@ -5,6 +5,7 @@
   :init
   (setq lsp-keymap-prefix "C-c l")
   :commands lsp
+  :custom ((lsp-headerline-breadcrumb-icons-enable nil))
   :config
   (setf lsp-completion-provider :none)
   (add-hook 'lsp-mode-hook

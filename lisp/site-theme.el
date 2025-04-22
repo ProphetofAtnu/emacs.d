@@ -7,7 +7,7 @@
 (defun +load-modus-vivendi ()
   (load-theme 'modus-vivendi t nil))
 
-(set-frame-font "Fira Code 11" nil t)
+(set-frame-font "Fira Code 12" nil t)
 
 
 (add-hook 'emacs-startup-hook

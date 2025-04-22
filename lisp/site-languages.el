@@ -40,6 +40,7 @@
 (require 'site-lang-python)
 (require 'site-lang-cc)
 (require 'site-lang-scala)
+(require 'site-lang-zig)
 (require 'site-lang-clojure)
 (require 'site-lang-query)
 (require 'site-lang-extras)
