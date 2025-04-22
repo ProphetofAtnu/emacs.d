@@ -23,10 +23,21 @@
 (use-package autorevert
     :hook (emacs-startup . global-auto-revert-mode))
 
+(use-package rg
+    :straight t
+    :commands (rg))
+
 (use-package projectile
     :straight t
     :delight projectile-mode
-    :hook (emacs-startup . projectile-mode))
+    :hook (emacs-startup . projectile-mode)
+    :bind
+    (:map
+      +leader-project-prefix-map
+      ("p" . projectile-commander)
+      ("f" . projectile-find-file)
+      ("r" . projectile-recentf)
+      ("i" . projectile-project-info)))
 
 (use-package yasnippet
     :straight t
@@ -44,8 +55,8 @@
     :straight t
     :commands (treemacs)
     :bind
-    (:map +leader-util-prefix-map
-	  ("t" . treemacs)))
+    (:map +leader-prefix-map
+	  ("TAB" . treemacs)))
 
 (use-package ialign
     :straight t

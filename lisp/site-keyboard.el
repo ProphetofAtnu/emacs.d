@@ -62,6 +62,10 @@
   "o" #'other-window
   "d" #'delete-window)
 
+(defvar-keymap +leader-project-prefix-map
+  :doc "Leader prefix for emacs project commands"
+  )
+
 (defvar-keymap +leader-prefix-map
   :doc "Leader prefix map"
   "SPC" #'execute-extended-command
@@ -72,6 +76,7 @@
   "s" `("Search" . ,+leader-search-prefix-map)
   "u" `("Utility" . ,+leader-util-prefix-map)
   "g" `("Goto" . ,+leader-goto-prefix-map)
+  "p" `("Project" . ,+leader-project-prefix-map)
   "h" `("Help" . ,help-map))
 
 (use-package which-key
