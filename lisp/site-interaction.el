@@ -6,7 +6,8 @@
 (defun +gui-setup ()
   (menu-bar-mode -1)
   (toggle-scroll-bar -1)
-  (tool-bar-mode -1))
+  (tool-bar-mode -1)
+  (tab-bar-mode +1))
 
 (add-hook 'emacs-startup-hook
 	  #'+gui-setup)
@@ -58,8 +59,32 @@
     (:map +leader-prefix-map
 	  ("TAB" . treemacs)))
 
+(use-package treemacs-evil
+    :straight t
+    :after treemacs
+    :config
+    (require 'treemacs-evil))
+
+(use-package treemacs-projectile
+    :straight t
+    :after (treemacs projectile)
+    :config
+    (require 'treemacs-projectile))
+
 (use-package ialign
     :straight t
     :commands (ialign))
+
+(use-package switch-window
+    :straight t
+    :custom
+    (switch-window-multiple-frames t)
+
+    :config
+    (setq switch-window-shortcut-style 'qwerty)
+
+    :general
+    (+leader-window-prefix-map
+     "w" 'switch-window))
 
 (provide 'site-interaction)

@@ -6,6 +6,15 @@
   (setq lsp-keymap-prefix "C-c l")
   :commands lsp
   :custom ((lsp-headerline-breadcrumb-icons-enable nil))
+
+  :general
+  (:keymaps 'lsp-mode
+	    :states '(normal motion)
+	    :definer 'minor-mode
+	    "," nil
+	    ", =" 'lsp-format-buffer
+	    ", R" 'lsp-rename
+	    )
   :config
   (setf lsp-completion-provider :none)
   (add-hook 'lsp-mode-hook

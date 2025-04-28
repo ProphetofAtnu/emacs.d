@@ -63,8 +63,8 @@
   "d" #'delete-window)
 
 (defvar-keymap +leader-project-prefix-map
-  :doc "Leader prefix for emacs project commands"
-  )
+  :doc "Leader prefix for emacs project commands")
+
 
 (defvar-keymap +leader-prefix-map
   :doc "Leader prefix map"

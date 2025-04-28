@@ -22,6 +22,13 @@
 	; ("C-c s" . eval-last-sexp)
 	; ("C-c C-c" . eval-defun)
 	)
+  :general
+  (:keymaps '(emacs-lisp-mode-map
+	      lisp-interaction-mode-map)
+   :states '(normal motion)
+   "," nil
+   ", l" 'elisp-enable-lexical-binding
+   )
   :config
   (defun +elisp-setup ()
     (setq-local evil-lookup-func #'helpful-at-point))
