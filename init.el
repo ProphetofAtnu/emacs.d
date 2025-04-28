@@ -51,7 +51,7 @@
       sentence-end-double-space nil
       minibuffer-follows-selected-frame nil
       tab-width 4
-      ; tab-bar-show nil
+      tab-bar-show 1
       gc-cons-threshold 100000000
       read-process-output-max (* 1024 1024)
       custom-file (expand-file-name "custom.el" user-emacs-directory))
