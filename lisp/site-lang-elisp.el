@@ -28,6 +28,8 @@
    :states '(normal motion)
    "," nil
    ", l" 'elisp-enable-lexical-binding
+   ", e" 'eval-defun
+   ", s" 'eval-last-sexp
    )
   :config
   (defun +elisp-setup ()

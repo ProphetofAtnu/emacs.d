@@ -11,7 +11,7 @@
        display-buffer-reuse-mode-window
        display-buffer-at-bottom)
       (window-height . 15)
-      (body-function . +popup-body-quit-fix)
+      ;; (body-function . +popup-body-quit-fix)
       (mode . (help-mode helpful-mode))
       (category . popup)))
 
@@ -35,5 +35,6 @@
 (make-popup-rule! +popup-help-rule "\\*Help\\*")
 (make-popup-rule! +popup-category-rule '(category . popup)) ;
 
+(add-hook 'emacs-startup-hook #'+rebuild-window-display-alist)
 
 (provide 'site-window-management)

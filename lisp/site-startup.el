@@ -6,12 +6,12 @@
 				    user-emacs-directory)))
 
 (use-package dash
-  :straight t
-  :demand t)
+    :straight t
+    :demand t)
 
 (use-package no-littering
-  :straight t
-  :demand t)
+    :straight t
+    :demand t)
 
 (use-package async
     :straight t

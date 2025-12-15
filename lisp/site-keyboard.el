@@ -1,5 +1,7 @@
 ;; -*- lexical-binding: t; -*-
 
+(require 'minibuffer)
+
 ;;; File prefix
 (use-package recentf :commands recentf)
 (use-package files :commands restart-emacs)
@@ -65,6 +67,8 @@
 (defvar-keymap +leader-project-prefix-map
   :doc "Leader prefix for emacs project commands")
 
+(defvar-keymap +leader-tab-prefix-map
+  :doc "Leader prefix for tab commands")
 
 (defvar-keymap +leader-prefix-map
   :doc "Leader prefix map"
@@ -74,6 +78,7 @@
   "w" `("Window" . ,+leader-window-prefix-map)
   "q" `("Emacs" . ,+leader-meta-prefix-map)
   "s" `("Search" . ,+leader-search-prefix-map)
+  "t" `("Tab" . ,+leader-tab-prefix-map)
   "u" `("Utility" . ,+leader-util-prefix-map)
   "g" `("Goto" . ,+leader-goto-prefix-map)
   "p" `("Project" . ,+leader-project-prefix-map)
@@ -107,6 +112,7 @@
   (defvar evil-undo-system 'undo-redo)
   (defvar evil-ex-search-vim-style-regexp t)
   (defvar evil-search-module 'evil-search)
+  (defvar evil-cross-lines t)
   :config
   (evil-define-key '(motion normal visual) 'global
     (kbd "<SPC>") +leader-prefix-map)
@@ -141,6 +147,7 @@
     :straight t
     :general
     (:states 'normal
-	     "g l" 'avy-goto-line))
+	     "g l" 'avy-goto-line
+	     "s" 'avy-goto-char-2))
 
 (provide 'site-keyboard)

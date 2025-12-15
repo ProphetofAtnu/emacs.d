@@ -81,8 +81,27 @@ targets."
 	  ("d" . consult-fd)
 	  :map +leader-search-prefix-map
 	  ("s" . consult-line)
+	  ("r" . consult-ripgrep)
+	  ("i" . consult-imenu)
+	  ("I" . consult-imenu-multi)
 	  :map +leader-buffer-prefix-map
-	  ("b" . consult-buffer)))
+	  ("b" . consult-buffer)
+	  ("p" . consult-project-buffer)
+	  :map +leader-project-prefix-map
+	  ("b" . consult-project-buffer)
+	  )
+    :config
+    (with-eval-after-load "perspective"
+      (consult-customize consult--source-buffer :hidden t :default nil)
+      (defvar consult--source-perspective
+	(list :name     "Perspective"
+              :narrow   ?s
+              :category 'buffer
+              :state    #'consult--buffer-state
+              :default  t
+              :items    #'persp-get-buffer-names))
+      (push consult--source-perspective consult-buffer-sources))
+    )
 
 (use-package orderless
   :straight t

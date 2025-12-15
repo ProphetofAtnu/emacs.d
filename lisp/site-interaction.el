@@ -15,6 +15,26 @@
 (use-package savehist
     :hook (emacs-startup . savehist-mode))
 
+(use-package tab-bar
+
+    :bind
+  (:map +leader-tab-prefix-map
+	("t" . tab-bar-new-tab)
+	("x" . tab-bar-close-tab)
+	("n" . tab-bar-switch-to-next-tab)
+	("p" . tab-bar-switch-to-prev-tab)
+	)
+
+  :config
+  (defvar-keymap +tab-bar-repeat-map
+    :repeat t
+    "n" #'tab-bar-switch-to-next-tab
+    "p" #'tab-bar-switch-to-prev-tab)
+  )
+
+(use-package casual
+    :straight t)
+
 (use-package recentf
     :hook (emacs-startup . recentf-mode))
 
@@ -38,7 +58,11 @@
       ("p" . projectile-commander)
       ("f" . projectile-find-file)
       ("r" . projectile-recentf)
-      ("i" . projectile-project-info)))
+      ("s" . projectile-switch-project)
+      ("i" . projectile-project-info)
+      ("c" . projectile-cleanup-known-projects)
+      ("C" . projectile-clear-known-projects)
+      ))
 
 (use-package yasnippet
     :straight t
@@ -71,6 +95,12 @@
     :config
     (require 'treemacs-projectile))
 
+(use-package treemacs-tab-bar
+    :straight t
+    :after (treemacs)
+    :config (treemacs-set-scope-type 'Tabs)
+    )
+
 (use-package ialign
     :straight t
     :commands (ialign))
@@ -86,5 +116,11 @@
     :general
     (+leader-window-prefix-map
      "w" 'switch-window))
+
+(use-package perspective
+    :straight t
+    :hook (emacs-startup . persp-mode)
+    :custom
+    (persp-mode-prefix-key (kbd "C-c M-p")))
 
 (provide 'site-interaction)

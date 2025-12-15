@@ -9,17 +9,35 @@
 (use-package evil-cleverparens
     :straight t
     :after (evil)
-    :hook ((lisp-mode
-	    emacs-lisp-mode
-	    scheme-mode
-	    lisp-interaction-mode)
-	   . evil-cleverparens-mode)
+    ;; :hook ((lisp-mode
+    ;; 	    emacs-lisp-mode
+    ;; 	    scheme-mode
+    ;; 	    lisp-interaction-mode)
+    ;; 	   . evil-cleverparens-mode)
     :general
     (:keymaps 'evil-cleverparens-mode-map
 	      :states '(visual normal motion operator)
 	      "{" nil
-	      "}" nil))
+	      "}" nil
+	      "s" 'evil-avy-goto-char-2))
 
+(use-package zoutline
+    :straight t)
+
+;; (use-package lispy
+;;     :straight t
+;;     :defer t)
+
+(use-package lispyville
+    :straight t
+    :hook ((lisp-mode emacs-lisp-mode scheme-mode lisp-interaction-mode) .
+	   lispyville-mode)
+    :config
+    (lispyville-set-key-theme '(operators additional slurp/barf-cp additional-wrap
+				additional-insert text-objects)))
+
+(use-package paredit
+    :straight t)
 
 (use-package macrostep
     :straight t

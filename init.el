@@ -16,8 +16,11 @@
       (eval-print-last-sexp)))
   (load bootstrap-file nil 'nomessage))
 
+(straight-use-package '(project :type built-in))
+
 (require 'cl-lib)
 (require 'use-package)
+
 
 ;; Packages that should always be available.
 (use-package delight :straight t
@@ -61,7 +64,8 @@
 (setf
  ;; warning-minimum-level :error
  ;; warning-minimum-loglevel :error
- native-comp-async-query-on-exit t)
+ native-comp-async-query-on-exit t
+ )
 
 ;; Backup files
 (setf
