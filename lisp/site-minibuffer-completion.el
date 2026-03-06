@@ -92,7 +92,7 @@ targets."
 	  )
     :config
     (with-eval-after-load "perspective"
-      (consult-customize consult--source-buffer :hidden t :default nil)
+      ;; (consult-customize consult--source-buffer :hidden t :default nil)
       (defvar consult--source-perspective
 	(list :name     "Perspective"
               :narrow   ?s
