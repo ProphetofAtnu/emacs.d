@@ -87,6 +87,8 @@ targets."
 	  :map +leader-buffer-prefix-map
 	  ("b" . consult-buffer)
 	  ("p" . consult-project-buffer)
+	  ("t" . consult-buffer-other-tab)
+	  ("w" . consult-buffer-other-window)
 	  :map +leader-project-prefix-map
 	  ("b" . consult-project-buffer)
 	  )

@@ -84,6 +84,7 @@
 (require 'site-vterm)
 (require 'site-languages)
 (require 'site-theme)
+(require 'site-bindings)
 
 (load (expand-file-name "custom.el" user-emacs-directory)
       t)

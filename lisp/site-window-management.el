@@ -33,8 +33,16 @@
 
 (make-popup-rule! +popup-helpful-rule "\\*helpful")
 (make-popup-rule! +popup-help-rule "\\*Help\\*")
+(make-popup-rule! +popup-apropos-rule "\\*Apropos\\*")
 (make-popup-rule! +popup-category-rule '(category . popup)) ;
 
 (add-hook 'emacs-startup-hook #'+rebuild-window-display-alist)
+
+(setopt display-buffer-base-action
+	'((display-buffer-reuse-window display-buffer-reuse-mode-window display-buffer-in-previous-window display-buffer-pop-up-window display-buffer-use-some-window) . nil))
+
+(setopt
+ split-width-threshold 80
+ split-height-threshold nil)
 
 (provide 'site-window-management)

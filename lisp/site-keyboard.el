@@ -11,64 +11,43 @@
   (keymap-unset dired-mode-map "SPC" t)
   (put 'dired-jump 'repeat-map nil))
 
-(defvar-keymap +leader-file-prefix-map
-  :doc "Leader prefix for file commands"
-  "f" #'find-file
-  "r" #'recentf
-  "s" #'save-buffer
-  "S" #'save-some-buffers
-  "j" #'dired-jump
-  "J" #'dired-jump-other-window
-  )
-
-;;; Meta prefix
-(defvar-keymap +leader-meta-prefix-map
-  :doc "Leader prefix for emacs global commands"
-  "r" #'restart-emacs
-  "q" #'save-buffers-kill-emacs
-  )
-
 (use-package ibuffer
   :commands ibuffer)
 
+(defvar-keymap +leader-file-prefix-map
+  :doc "Leader prefix for file commands"
+)
+
+;;; Meta prefix
+(defvar-keymap +leader-meta-prefix-map
+  :doc "Leader prefix for emacs global commands")
+
 ;;; Buffer prefix
 (defvar-keymap +leader-buffer-prefix-map
-  :doc "Leader prefix for buffer commands"
-  "b" #'switch-to-buffer
-  "d" #'kill-current-buffer
-  "i" #'ibuffer
-  )
+  :doc "Leader prefix for buffer commands")
 
 ;;; Goto prefix
 (defvar-keymap +leader-goto-prefix-map
-  :doc "Leader prefix for jump/goto commands"
-  "l" #'goto-line)
+  :doc "Leader prefix for jump/goto commands")
 
 ;;; Util prefix
 (defvar-keymap +leader-util-prefix-map
-  :doc "Leader prefix for utility commands"
-  "p" #'list-processes)
+  :doc "Leader prefix for utility commands")
 
 ;;; Search prefix
 (defvar-keymap +leader-search-prefix-map
-  :doc "Leader prefix for search commands"
-  "G" #'grep)
-
-;;; Window prefix
-(use-package window
-  :commands (other-window
-	     delete-window))
-
-(defvar-keymap +leader-window-prefix-map
-  :doc "Leader prefix for window commands"
-  "o" #'other-window
-  "d" #'delete-window)
+  :doc "Leader prefix for search commands")
 
 (defvar-keymap +leader-project-prefix-map
   :doc "Leader prefix for emacs project commands")
 
 (defvar-keymap +leader-tab-prefix-map
   :doc "Leader prefix for tab commands")
+
+(defvar-keymap +leader-window-prefix-map
+  :doc "Leader prefix for window commands")
+
+
 
 (defvar-keymap +leader-prefix-map
   :doc "Leader prefix map"
