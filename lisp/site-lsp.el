@@ -5,8 +5,10 @@
   :init
   (setq lsp-keymap-prefix "C-c l")
   :commands lsp
-  :custom ((lsp-headerline-breadcrumb-icons-enable nil))
-
+  :custom
+  (lsp-headerline-breadcrumb-icons-enable nil)
+  (lsp-completion-provider :none)
+  (lsp-enable-imenu t)
   :general
   (:keymaps 'lsp-mode
 	    :states '(normal motion)
@@ -18,8 +20,6 @@
 	    ", l d" 'lsp-ui-doc-toggle
 	    )
   :config
-  (setf lsp-completion-provider :none)
-  (setf lsp-enable-imenu t)
   (add-hook 'lsp-mode-hook
 	    (lambda ()
 	      (setq-local evil-lookup-func #'lsp-ui-doc-glance))))

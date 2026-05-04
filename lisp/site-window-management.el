@@ -7,11 +7,13 @@
   (print (window-parameters window)))
 
 (defvar +popup-window-alist
-    '((display-buffer-reuse-window
-       display-buffer-reuse-mode-window
-       display-buffer-at-bottom)
+    '((display-buffer-in-side-window)
       (window-height . 15)
+      (side . bottom)
+      (slot . 0)
       ;; (body-function . +popup-body-quit-fix)
+      (dedicated . t)
+      (some-window . lru)
       (mode . (help-mode helpful-mode))
       (category . popup)))
 
@@ -39,7 +41,11 @@
 (add-hook 'emacs-startup-hook #'+rebuild-window-display-alist)
 
 (setopt display-buffer-base-action
-	'((display-buffer-reuse-window display-buffer-reuse-mode-window display-buffer-in-previous-window display-buffer-pop-up-window display-buffer-use-some-window) . nil))
+	'((display-buffer-reuse-window
+	   display-buffer-reuse-mode-window
+	   display-buffer-in-previous-window
+	   display-buffer-pop-up-window
+	   display-buffer-use-some-window) . nil))
 
 (setopt
  split-width-threshold 80

@@ -46,34 +46,31 @@
 (require 'site-startup)
 
 ;; General
-(setf visible-bell nil
-      inhibit-splash-screen t
-      frame-resize-pixelwise t
-      window-resize-pixelwise t
-      ring-bell-function #'ignore
-      sentence-end-double-space nil
-      minibuffer-follows-selected-frame nil
-      tab-width 4
-      tab-bar-show 1
-      gc-cons-threshold 100000000
-      read-process-output-max (* 1024 1024)
-      custom-file (expand-file-name "custom.el" user-emacs-directory))
+(setopt visible-bell nil
+	inhibit-splash-screen t
+	frame-resize-pixelwise t
+	window-resize-pixelwise t
+	ring-bell-function #'ignore
+	sentence-end-double-space nil
+	minibuffer-follows-selected-frame nil
+	tab-width 4
+	tab-bar-show 1
+	gc-cons-threshold 100000000
+	native-comp-async-query-on-exit t
+	custom-file (expand-file-name "custom.el" user-emacs-directory)
+	switch-to-buffer-obey-display-actions t
+	create-lockfiles nil
+	backup-directory-alist `((".*" . ,temporary-file-directory))
+	auto-save-file-name-transforms `((".*" ,temporary-file-directory t)))
 
 
 ;; Native comp
 (setf
+ read-process-output-max (* 1024 1024)
  ;; warning-minimum-level :error
  ;; warning-minimum-loglevel :error
- native-comp-async-query-on-exit t
  )
 
-;; Backup files
-(setf
- create-lockfiles nil
- backup-directory-alist `((".*" . ,temporary-file-directory))
- auto-save-file-name-transforms `((".*" ,temporary-file-directory t)))
-
-(setf switch-to-buffer-obey-display-actions t)
 
 (require 'site-keyboard)
 (require 'site-interaction)
@@ -86,6 +83,7 @@
 (require 'site-theme)
 (require 'site-bindings)
 
+;; Load custom
 (load (expand-file-name "custom.el" user-emacs-directory)
       t)
 

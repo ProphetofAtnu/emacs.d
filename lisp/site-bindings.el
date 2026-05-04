@@ -25,7 +25,7 @@
   "s" #'save-buffer
   "S" #'save-some-buffers
   "j" #'dired-jump
-  "j" #'dired-jump-other-window
+  "J" #'dired-jump-other-window
 
   :keymaps '+leader-util-prefix-map
   "l" #'list-processes

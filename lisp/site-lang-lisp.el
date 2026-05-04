@@ -2,9 +2,9 @@
 
 (use-package lisp-mode
   :init
-  (setf lisp-indent-function #'common-lisp-indent-function)
-  :config
-  (setq inferior-lisp-program "ros -Q run"))
+  :custom
+  (lisp-indent-function #'common-lisp-indent-function)
+  (inferior-lisp-program "ros -Q run"))
 
 (use-package evil-cleverparens
     :straight t

@@ -4,13 +4,16 @@
 
 (use-package vertico
     :straight t
-    :init
-    (setf enable-recursive-minibuffers t)
-    (setq minibuffer-prompt-properties
-          '(read-only t cursor-intangible t face minibuffer-prompt))
-    (add-hook 'minibuffer-setup-hook #'cursor-intangible-mode)
-    :hook (emacs-startup . vertico-mode)
-    )
+	:custom
+	(enable-recursive-minibuffers t)
+	(minibuffer-prompt-properties
+		  '(read-only t cursor-intangible t face minibuffer-prompt))
+
+	:init
+	(add-hook 'minibuffer-setup-hook #'cursor-intangible-mode)
+
+	:hook (emacs-startup . vertico-mode)
+	)
 
 (use-package marginalia
     :straight t
@@ -93,17 +96,17 @@ targets."
 	  ("b" . consult-project-buffer)
 	  )
     :config
-    (with-eval-after-load "perspective"
-      ;; (consult-customize consult--source-buffer :hidden t :default nil)
-      (defvar consult--source-perspective
-	(list :name     "Perspective"
-              :narrow   ?s
-              :category 'buffer
-              :state    #'consult--buffer-state
-              :default  t
-              :items    #'persp-get-buffer-names))
-      (push consult--source-perspective consult-buffer-sources))
-    )
+	(with-eval-after-load "perspective"
+	  ;; (consult-customize consult--source-buffer :hidden t :default nil)
+	  (defvar consult--source-perspective
+		(list :name     "Perspective"
+			  :narrow   ?s
+			  :category 'buffer
+			  :state    #'consult--buffer-state
+			  :default  t
+			  :items    #'persp-get-buffer-names))
+	  (push consult--source-perspective consult-buffer-sources))
+	)
 
 (use-package orderless
   :straight t
@@ -141,19 +144,19 @@ targets."
   ;; be used when orderless fails, which happens only for these special
   ;; tables. Also note that you may want to configure special styles for special
   ;; completion categories, e.g., partial-completion for files.
-  (setq completion-styles '(orderless basic)
-        completion-category-defaults nil
-        ;;; Enable partial-completion for files.
-        ;;; Either give orderless precedence or partial-completion.
-        ;;; Note that completion-category-overrides is not really an override,
-        ;;; but rather prepended to the default completion-styles.
-        ;; completion-category-overrides '((file (styles orderless partial-completion))) ;; orderless is tried first
-        completion-category-overrides '((file (styles partial-completion)) ;; partial-completion is tried first
-                                        ;; enable initialism by default for symbols
-                                        (command (styles +orderless-with-initialism))
-                                        (variable (styles +orderless-with-initialism))
-                                        (symbol (styles +orderless-with-initialism)))
-        orderless-component-separator #'orderless-escapable-split-on-space ;; allow escaping space with backslash!
-        orderless-style-dispatchers (list #'+orderless-consult-dispatch
-                                          #'orderless-affix-dispatch)))
+  (setopt completion-styles '(orderless basic)
+		  completion-category-defaults nil
+		;;; Enable partial-completion for files.
+		;;; Either give orderless precedence or partial-completion.
+		;;; Note that completion-category-overrides is not really an override,
+		;;; but rather prepended to the default completion-styles.
+		  ;; completion-category-overrides '((file (styles orderless partial-completion))) ;; orderless is tried first
+		  completion-category-overrides '((file (styles partial-completion)) ;; partial-completion is tried first
+										  ;; enable initialism by default for symbols
+										  (command (styles +orderless-with-initialism))
+										  (variable (styles +orderless-with-initialism))
+										  (symbol (styles +orderless-with-initialism)))
+		  orderless-component-separator #'orderless-escapable-split-on-space ;; allow escaping space with backslash!
+		  orderless-style-dispatchers (list #'+orderless-consult-dispatch
+											#'orderless-affix-dispatch)))
 (provide 'site-minibuffer-completion)
